@@ -8,5 +8,5 @@ as soon as possible. All the previous versions should be considered unsafe.
 
 ## Reporting a Vulnerability
 
-If you found a vulnerability, please send an email to xlcnd@outlook.com, and I will give you access
+If you found a vulnerability, please send an email to valarmmail@gmx.de, and I will give you access
 to a private part of the repository to discuss further the issue.

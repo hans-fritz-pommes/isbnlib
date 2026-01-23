@@ -3,7 +3,6 @@
 
 import logging
 
-# 'pkg_resources' is deprecated! SEE https://setuptools.pypa.io/en/latest/pkg_resources.html
 from importlib.metadata import entry_points
 
 from . import NotValidDefaultFormatterError, NotValidDefaultServiceError

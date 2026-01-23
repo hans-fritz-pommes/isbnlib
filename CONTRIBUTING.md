@@ -12,12 +12,12 @@ adventure in open-source.
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
 2. Submit a ticket for your issue or idea (**ONE ticket for each issue or idea**)
    ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
-   on https://github.com/xlcnd/isbnlib/issues,
+   on https://github.com/hans-fritz-pommes/isbnlib/issues,
    (if possible wait for some feedback before any serious commitment... :)
 3. **Fork** the repository on GitHub and **clone it locally**
    ([help](https://help.github.com/articles/fork-a-repo)).
 4. `pip install -r requirements-dev.txt` (at your local directory).
-5. Do your code... (**remember the code must run on python 3.6+
+5. Do your code... (**remember the code must run on python 3.11+
    and be OS independent**, you will find [Github Actions](https://docs.github.com/en/actions) very handy for
    testing with this requirement!)
 6. Write tests for your code using `pytest` and put then in the directory `isbnlib/test`
@@ -48,7 +48,7 @@ for fellow developers. Make your code as clear as possible.
 already in the repo!**
 Don't expect kindness if you do that :) You **can** comment and give
 suggestions on the code at the
-[issues](https://github.com/xlcnd/isbnlib/issues/5) page
+[issues](https://github.com/hans-fritz-pommes/isbnlib/issues/5) page
 or use the link **`Give feedback`** at the bottom of each Github page.
 
 **No** doc tests! Remember point 6 above.
@@ -59,7 +59,7 @@ or use the link **`Give feedback`** at the bottom of each Github page.
 
 ## Suggestions
 
-Goto [issues/enhancement](https://github.com/xlcnd/isbnlib/issues?labels=enhancement&page=1&state=open)
+Goto [issues/enhancement](https://github.com/hans-fritz-pommes/isbnlib/issues?labels=enhancement&page=1&state=open)
 for possible enhancements to the code.
 If you have some idea that is not there enter your own.
 Select some focused issue and enter some comments on how you plan to tackle it.

@@ -3,7 +3,7 @@
 # isort:skip_file
 
 # isbnlib -- tools for extracting, cleaning and transforming ISBNs
-# Copyright (C) 2014-2023 Alexandre Lima Conde
+# Copyright (C) 2014-2023 Alexandre Lima Conde, 2026-2026 Hannes Schweizer
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
@@ -27,14 +27,14 @@ PROJECT_NAME = 'isbnlib'
 PROJECT_PACKAGE_NAME = 'isbnlib'
 PROJECT_LICENSE = 'LGPL v3'
 PROJECT_LICENSE_URL = (
-    'https://github.com/xlcnd/isbnlib/blob/dev/LICENSE-LGPL-3.0.txt')
-PROJECT_AUTHOR = 'Alexandre Lima Conde'
-PROJECT_COPYRIGHT = ' 2014-{}, {}'.format(dt.now().year, PROJECT_AUTHOR)
-PROJECT_URL = 'https://github.com/xlcnd/isbnlib'
-PROJECT_EMAIL = 'xlcnd@outlook.com'
+    'https://github.com/hans-fritz-pommes/isbnlib/blob/dev/LICENSE-LGPL-3.0.txt')
+PROJECT_AUTHOR = 'Hannes Schweizer'
+PROJECT_COPYRIGHT = ' 2014-2023 Alexandre Lima Conde, 2026-{} {}'.format(dt.now().year, PROJECT_AUTHOR)
+PROJECT_URL = 'https://github.com/hans-fritz-pommes/isbnlib'
+PROJECT_EMAIL = 'valarmmail@gmx.de'
 PROJECT_VERSION = __version__
 
-PROJECT_GITHUB_USERNAME = 'xlcnd'
+PROJECT_GITHUB_USERNAME = 'hans-fritz-pommes'
 PROJECT_GITHUB_REPOSITORY = 'isbnlib'
 
 GITHUB_PATH = '{}/{}'.format(
@@ -46,7 +46,7 @@ GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
 DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, 'v' + PROJECT_VERSION)
 PROJECT_URLS = {
     'Bug Reports': '{}/issues'.format(GITHUB_URL),
-    'Dev Docs': 'https://github.com/xlcnd/isbnlib#info',
+    'Dev Docs': 'https://github.com/hans-fritz-pommes/isbnlib#info',
     'Forum': 'https://stackoverflow.com/search?tab=newest&q=isbnlib',
     'License': PROJECT_LICENSE_URL,
 }

@@ -1,17 +1,5 @@
 
-.. image:: https://github.com/xlcnd/isbnlib/workflows/tests/badge.svg
-    :target: https://github.com/xlcnd/isbnlib/actions
-    :alt: Built Status
-
-.. image:: https://img.shields.io/github/issues/xlcnd/isbnlib/bug.svg?label=bugs&style=flat
-    :target: https://github.com/xlcnd/isbnlib/labels/bug
-    :alt: Bugs
-
-.. image:: https://img.shields.io/pypi/dm/isbnlib.svg?style=flat
-    :target: https://pypi.org/project/isbnlib/
-    :alt: PYPI Downloads
-
-
+Forked from https://github.com/xlcnd/isbnlib
 
 Info
 ====
@@ -345,7 +333,7 @@ Caveats
 
 
 
-Projects using *isbnlib*
+Projects using *xlcnd/isbnlib*
 ========================
 
 **Open Library**   https://github.com/internetarchive/openlibrary
