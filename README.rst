@@ -1,6 +1,8 @@
 
 Forked from https://github.com/xlcnd/isbnlib
 
+The following information is from there. This is not the repo for the PyPI-package ``isbnlib``.
+
 Info
 ====
 
