@@ -6,9 +6,12 @@
 # copied from: https://github.com/xlcnd/isbnlib/pull/120
 
 
-import requests
+from urllib.request import urlopen
 from datetime import datetime, timezone
+from time import sleep
 from xml.dom import minidom
+import urllib.error
+import os
 
 RANGEFILEURL = 'https://www.isbn-international.org/export_rangemessage.xml'
 M_DATE_FMT = '%a, %d %b %Y %H:%M:%S %Z'
@@ -74,12 +77,38 @@ def clean(s, style='mask'):
         s = s.replace("': '", "':'")
     return s
 
+def restore():
+    for file in[MASKFILE,INFOFILE,'RangeMessage.xml']:
+        if os.path.exists(file+'.old') and os.path.isfile(file+'.old'):
+            f=open(file+'.old','rb')
+            g=open(file,'wb')
+            g.write(f.read())
+            f.close()
+            g.close()
 
-def main():
+def update():
     generatetime = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    r = requests.get(RANGEFILEURL)
-    dom = minidom.parseString(r.text)
-    #dom = minidom.parse('RangeMessage.xml')
+    retrys=0
+    while retrys<2:
+        try:
+            r = urlopen(RANGEFILEURL)
+            break
+        except urllib.error.HTTPError:
+            retrys+=1
+    if retrys==2:
+        raise TimeoutError('Too many failed retrys accessing '+RANGEFILEURL)
+
+    for file in[MASKFILE,INFOFILE,'RangeMessage.xml']:
+        if os.path.exists(file) and os.path.isfile(file):
+            if os.path.exists(file+'.old') and os.path.isfile(file+".old"):
+                os.remove(file+".old")
+            os.rename(file,file+".old")
+
+    f=open('RangeMessage.xml','wb')
+    f.write(r.read())
+    f.close()
+
+    dom = minidom.parse('RangeMessage.xml')
     nodes = dom.getElementsByTagName('Group')
     messagedate = dom.getElementsByTagName('MessageDate')[0]
     rddate = datetime.strptime(messagedate.firstChild.nodeValue, M_DATE_FMT)
@@ -104,13 +133,15 @@ def main():
 
     maskdata = clean((HEADER + MASKBODY).format(**data), 'mask')
     infodata = clean((HEADER + INFOBODY).format(**data), 'info')
+        
+    with open(MASKFILE, 'w',encoding="utf-8") as mask:
+        print(mask.write(maskdata))
+        mask.close()
 
-    with open(MASKFILE, 'w') as mask:
-        mask.write(maskdata)
-
-    with open(INFOFILE, 'w') as info:
-        info.write(infodata)
+    with open(INFOFILE, 'w',encoding="utf-8") as info:
+        print(info.write(infodata))
+        info.close()
 
 
 if __name__ == '__main__':
-    main()
+    update()
