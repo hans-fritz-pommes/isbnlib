@@ -85,6 +85,7 @@ def restore():
             g.write(f.read())
             f.close()
             g.close()
+            os.remove(file+'.old')
 
 def update():
     generatetime = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
