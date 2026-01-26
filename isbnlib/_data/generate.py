@@ -93,12 +93,12 @@ def update():
     while retrys<2:
         try:
             r = urlopen(RANGEFILEURL)
-            print('Accessing "'+RANGEFILEURL)
+            print('Accessing "'+RANGEFILEURL+'"')
             break
         except urllib.error.HTTPError:
             retrys+=1
     if retrys==2:
-        raise TimeoutError('Too many failed retrys accessing '+RANGEFILEURL)
+        raise TimeoutError('Too many failed retrys accessing "'+RANGEFILEURL+'"')
 
     for file in[MASKFILE,INFOFILE,'RangeMessage.xml']:
         if os.path.exists(file) and os.path.isfile(file):
@@ -109,7 +109,7 @@ def update():
     f=open('RangeMessage.xml','wb')
     f.write(r.read())
     f.close()
-    print("RangeMessage.xml downloaded in "+str(retrys)+" trys")
+    print("RangeMessage.xml downloaded in "+str(retrys+1)+" tries")
 
     dom = minidom.parse('RangeMessage.xml')
     nodes = dom.getElementsByTagName('Group')
