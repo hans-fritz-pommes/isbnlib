@@ -9,9 +9,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
 
       - name: Run generate.py
         run: cd isbnlib/_data && python generate.py
+
+      - name: Commit changes
+        run: |
+          cd isbnlib/_data
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Updated ISBN-range-lists"
+          git push
