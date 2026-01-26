@@ -29,7 +29,7 @@ PROVIDERS = ()
 
 def setdefaultservice(name):
     """Set the default service."""
-    global services
+    #global services
     services['default'] = services[name.lower()]
     if name != 'default' and name in services:
         services['default'] = services[name.lower()]
@@ -40,7 +40,7 @@ def setdefaultservice(name):
 
 def add_service(name, query):  # pragma: no cover
     """Add a new service to services."""
-    global services
+    #global services
     services[name.lower()] = query
 
 
@@ -65,7 +65,7 @@ BIBFORMATS = ()
 
 def setdefaultbibformatter(name):
     """Set the default formatter."""
-    global bibformatters
+    #global bibformatters
     if name != 'default' and name in bibformatters:
         bibformatters['default'] = bibformatters[name.lower()]
     else:
@@ -75,7 +75,7 @@ def setdefaultbibformatter(name):
 
 def add_bibformatter(name, formatter):  # pragma: no cover
     """Add a new formatter to formatters."""
-    global bibformatters
+    #global bibformatters
     bibformatters[name] = formatter.lower()
 
 
