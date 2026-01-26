@@ -93,6 +93,7 @@ def update():
     while retrys<2:
         try:
             r = urlopen(RANGEFILEURL)
+            print('Accessing "'+RANGEFILEURL)
             break
         except urllib.error.HTTPError:
             retrys+=1
