@@ -21,7 +21,7 @@ jobs:
       - name: Commit changes
         run: |
           cd isbnlib/_data
-          git config --global user.name "hans-fritz-pommes"
+          git config --global user.name "[isbn-update-bot]"
           git add .
           git diff-index --quiet HEAD || git commit -m "Updated ISBN-range-lists"
           git push
