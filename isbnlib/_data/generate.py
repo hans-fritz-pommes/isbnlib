@@ -108,6 +108,7 @@ def update():
     f=open('RangeMessage.xml','wb')
     f.write(r.read())
     f.close()
+    print("RangeMessage.xml downloaded in "+str(retrys)+" trys")
 
     dom = minidom.parse('RangeMessage.xml')
     nodes = dom.getElementsByTagName('Group')
@@ -136,12 +137,14 @@ def update():
     infodata = clean((HEADER + INFOBODY).format(**data), 'info')
         
     with open(MASKFILE, 'w',encoding="utf-8") as mask:
-        print(mask.write(maskdata))
+        mask.write(maskdata)
         mask.close()
+        print("MASKFILE written")
 
     with open(INFOFILE, 'w',encoding="utf-8") as info:
-        print(info.write(infodata))
+        info.write(infodata)
         info.close()
+        print("INFOFILE written")
 
 
 if __name__ == '__main__':
