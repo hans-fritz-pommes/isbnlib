@@ -13,4 +13,4 @@ pytestmark = pytest.mark.network
 def test_webservice():
     """Test that values can be passed to a WebService query."""
     assert (
-        (len(repr(wsquery('https://example.org', values={'some': 'values'}))) > 0) == True)
+        (len(repr(wsquery('https://html.duckduckgo.com', values={'some': 'values'}))) > 0) == True) # example.org doesn't accept values ?!
