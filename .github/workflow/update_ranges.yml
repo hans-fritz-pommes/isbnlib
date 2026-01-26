@@ -1,0 +1,18 @@
+name: Update ISBN-ranges via generate.py
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Run generate.py
+        run: cd isbnlib/_data && python generate.py
