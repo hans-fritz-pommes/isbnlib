@@ -12,11 +12,11 @@ LOGGER = logging.getLogger(__name__)
 
 @cache
 def goos(words):
-    """Use DuckDuckGo - HTML to get an ISBN from words from title and author's name."""
+    """Use DuckDuckGo - HTML to get an ISBN from words from title and author's name.""" # Google is making too complex responses
     service_url = 'https://html.duckduckgo.com/html?q=ISBN+'
     search_url = service_url + quote(words.replace(' ', '+'))
 
-    user_agent = 'Mozilla/5.0'
+    user_agent = 'Mozilla/5.0' # w3m too old
 
     content = webservice.query(
         search_url,
