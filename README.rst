@@ -1,7 +1,13 @@
+|Generic badge|
+
+    .. |Generic badge| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml/badge.svg
+        :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml
+
+--------------
 
 Forked from https://github.com/xlcnd/isbnlib
 
-The following information is from there. This is not the repo for the PyPI-package ``isbnlib``.
+The following information is from there. This is NOT the repo for the PyPI-package ``isbnlib``.
 
 Info
 ====
