@@ -5,6 +5,10 @@ on:
   pull_request:
   schedule:
   - cron: '15 5 * * *'
+  workflow_run:
+    workflows: ["Update ISBN-ranges via generate.py"]  # Name des Update-Workflows
+    types:
+      - completed
 
 jobs:
   basic-tests-linux:
