@@ -3,7 +3,7 @@
 # isort:skip_file
 
 # isbnlib -- tools for extracting, cleaning and transforming ISBNs
-# Copyright (C) 2014-2023 Alexandre Lima Conde, 2026-2026 Hannes Schweizer
+# Copyright (C) 2014-2023 Alexandre Lima Conde, 2026-2026 Hans-Fritz Pommes
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ PROJECT_PACKAGE_NAME = 'isbnlib2'
 PROJECT_LICENSE = 'LGPL v3'
 PROJECT_LICENSE_URL = (
     'https://github.com/hans-fritz-pommes/isbnlib/blob/dev/LICENSE-LGPL-3.0.txt')
-PROJECT_AUTHOR = 'Hannes Schweizer'
+PROJECT_AUTHOR = 'Hans-Fritz Pommes'
 PROJECT_COPYRIGHT = ' 2014-2023 Alexandre Lima Conde, 2026-{} {}'.format(dt.now().year, PROJECT_AUTHOR)
 PROJECT_URL = 'https://github.com/hans-fritz-pommes/isbnlib'
 PROJECT_EMAIL = 'valarmmail@gmx.de'
