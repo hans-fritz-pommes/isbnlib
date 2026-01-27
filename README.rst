@@ -341,7 +341,7 @@ Caveats
 
 
 Projects using *xlcnd/isbnlib*
-========================
+==============================
 
 **Open Library**   https://github.com/internetarchive/openlibrary
 
