@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "isbnlib2"
+version = "3.11.0b0"
+requires-python = ">= 3.8"
+authors = [
+  {name = "Alexandre Lima Conde", email = "xlcnd@outlook.com"},
+  {name = "Hans-Fritz Pommes", email = "valarmmail@gmx.de"},
+]
+maintainers = [
+  {name = "Hans-Fritz Pommes", email = "valarmmail@gmx.de"}
+]
+description = "Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number)."
+readme = "README.rst"
+license = "LGPL-3.0-only"
+license-files = ["LICENSE-LGPL-3.0.txt", "AUTHORS.md", "COPYRIGHT.txt"]
+keywords = ["isbn", "isbnlib", "book", "metadata"]
+classifiers = [
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+  "Operating System :: OS Independent",
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Topic :: Text Processing :: General",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/hans-fritz-pommes/isbnlib"
+# Documentation = "https://readthedocs.org"
+Repository = "https://github.com/hans-fritz-pommes/isbnlib.git"
+Issues = "https://github.com/hans-fritz-pommes/isbnlib/issues"
+Changelog = "https://github.com/hans-fritz-pommes/isbnlib/blob/master/CHANGES.txt"
+
