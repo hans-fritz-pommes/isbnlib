@@ -24,7 +24,7 @@ from setuptools import setup
 from isbnlib import __version__
 
 PROJECT_NAME = 'isbnlib'
-PROJECT_PACKAGE_NAME = 'isbnlib'
+PROJECT_PACKAGE_NAME = 'isbnlib2'
 PROJECT_LICENSE = 'LGPL v3'
 PROJECT_LICENSE_URL = (
     'https://github.com/hans-fritz-pommes/isbnlib/blob/dev/LICENSE-LGPL-3.0.txt')
