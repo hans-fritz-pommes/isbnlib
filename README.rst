@@ -26,7 +26,7 @@ command with ``sudo``):
 
 .. code-block:: bash
 
-    $ pip install isbnlib
+    $ pip install isbnlib2
 
 
 If you use linux systems, you can install using your distribution package
