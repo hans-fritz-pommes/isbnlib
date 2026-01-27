@@ -41,3 +41,6 @@ Repository = "https://github.com/hans-fritz-pommes/isbnlib.git"
 Issues = "https://github.com/hans-fritz-pommes/isbnlib/issues"
 Changelog = "https://github.com/hans-fritz-pommes/isbnlib/blob/master/CHANGES.txt"
 
+[tool.setuptools.packages.find]
+where = ["isbnlib"]
+exclude = ["test"]
