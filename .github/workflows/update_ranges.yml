@@ -3,8 +3,13 @@ name: Update ISBN-ranges via generate.py
 on:
   workflow_dispatch:
 
+permissions: read-all
+
 jobs:
   run-python-script:
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
 
     steps:
