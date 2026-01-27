@@ -1,7 +1,6 @@
-|Generic badge|
+|Tests|
 
-    .. |Generic badge| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml/badge.svg
-        :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml
+|Code scanning|
 
 --------------
 
@@ -373,6 +372,12 @@ Help
 If you need help, please take a look at github_ or post a question on
 stackoverflow_.
 
+
+.. |Tests| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml/badge.svg
+    :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml
+
+.. |Code scanning| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/codeql-analysis.yml/badge.svg
+    :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/codeql-analysis.yml
 
 
 .. _github: https://github.com/xlcnd/isbnlib/discussions
