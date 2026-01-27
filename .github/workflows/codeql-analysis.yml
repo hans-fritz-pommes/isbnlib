@@ -11,6 +11,10 @@ permissions: read-all
 jobs:
   CodeQL-Build:
 
+    permissions:
+      statuses: write
+      security-events: write
+
     runs-on: ubuntu-latest
 
     steps:
