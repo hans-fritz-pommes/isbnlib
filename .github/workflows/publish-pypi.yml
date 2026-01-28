@@ -38,7 +38,7 @@ jobs:
   
   publish-to-pypi:
     permissions:
-      id-token: write  # IMPORTANT: mandatory for trusted publishing
+      id-token: write  # mandatory for trusted publishing
 
     name: Publish Python 🐍 distribution 📦 to PyPI
     #if: startsWith(github.ref, 'refs/tags/')  # only publish to PyPI on tag pushes
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/isbnlib2  # Replace <package-name> with your PyPI project name
+      url: https://pypi.org/p/isbnlib2
     
     steps:
     - name: Download all the dists
