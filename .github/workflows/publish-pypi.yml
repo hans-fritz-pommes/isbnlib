@@ -2,6 +2,10 @@ name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Create Release"]  # Name of the Release-Workflow
+    types:
+      - completed
 
 permissions: read-all
 
