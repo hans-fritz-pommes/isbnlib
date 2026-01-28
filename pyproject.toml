@@ -39,7 +39,7 @@ Homepage = "https://github.com/hans-fritz-pommes/isbnlib"
 # Documentation = "https://readthedocs.org"
 Repository = "https://github.com/hans-fritz-pommes/isbnlib.git"
 Issues = "https://github.com/hans-fritz-pommes/isbnlib/issues"
-Changelog = "https://github.com/hans-fritz-pommes/isbnlib/blob/master/CHANGES.txt"
+Changelog = "https://github.com/hans-fritz-pommes/isbnlib/blob/dev/CHANGES.txt"
 
 [tool.setuptools.packages.find]
 exclude = ["isbnlib.test*"]
