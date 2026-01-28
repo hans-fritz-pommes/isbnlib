@@ -6,7 +6,7 @@ on:
   schedule:
   - cron: '15 5 * * *'
   workflow_run:
-    workflows: ["Update ISBN-ranges via generate.py"]  # Name des Update-Workflows
+    workflows: ["Update ISBN-ranges via generate.py"]  # name of the Update-workflow
     types:
       - completed
 
