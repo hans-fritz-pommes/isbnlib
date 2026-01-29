@@ -1,4 +1,6 @@
-|Tests|
+|Small Tests|
+
+|Fat Tests|
 
 |Code scanning|
 
@@ -6,7 +8,9 @@
 
 Forked from https://github.com/xlcnd/isbnlib
 
-The following information is from there. This is NOT the repo for the PyPI-package ``isbnlib``.
+This is NOT the repo for the **outdated** PyPI-package ``isbnlib``.
+The PyPI-package for this fork is named ``isbnlib2``.
+You can import it the same way - **you don't have to change your code**.
 
 Info
 ====
@@ -20,8 +24,7 @@ get metadata for ISBN strings.
 Install
 -------
 
-From the command line, enter (in some cases you have to precede the
-command with ``sudo``):
+Install with pip the following way:
 
 
 .. code-block:: bash
@@ -373,8 +376,11 @@ If you need help, please take a look at github_ or post a question on
 stackoverflow_.
 
 
-.. |Tests| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml/badge.svg
-    :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/basictests.yml
+.. |Small Tests| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/small-tests.yml/badge.svg
+    :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/small-tests.yml
+
+.. |Fat Tests| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/fat-tests.yml/badge.svg
+    :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/fat-tests.yml
 
 .. |Code scanning| image:: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/codeql-analysis.yml/badge.svg
     :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/codeql-analysis.yml

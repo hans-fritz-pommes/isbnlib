@@ -11,7 +11,10 @@ from datetime import datetime, timezone
 from time import sleep
 from xml.dom import minidom
 import urllib.error
+import logging
 import os
+
+LOGGER = logging.getLogger(__name__)
 
 RANGEFILEURL = 'https://www.isbn-international.org/export_rangemessage.xml'
 M_DATE_FMT = '%a, %d %b %Y %H:%M:%S %Z'
@@ -78,7 +81,7 @@ def clean(s, style='mask'):
     return s
 
 def restore():
-    for file in[MASKFILE,INFOFILE,'RangeMessage.xml']:
+    for file in[MASKFILE,INFOFILE]:
         if os.path.exists(file+'.old') and os.path.isfile(file+'.old'):
             f=open(file+'.old','rb')
             g=open(file,'wb')
@@ -100,7 +103,9 @@ def update():
     if retrys==2:
         raise TimeoutError('Too many failed retrys accessing "'+RANGEFILEURL+'"')
 
-    for file in[MASKFILE,INFOFILE,'RangeMessage.xml']:
+    rm_old_exists=False
+
+    for file in[MASKFILE,INFOFILE]:
         if os.path.exists(file) and os.path.isfile(file):
             if os.path.exists(file+'.old') and os.path.isfile(file+".old"):
                 os.remove(file+".old")
@@ -146,6 +151,8 @@ def update():
         info.write(infodata)
         info.close()
         print("INFOFILE written")
+    
+    os.remove("RangeMessage.xml")
 
 
 if __name__ == '__main__':

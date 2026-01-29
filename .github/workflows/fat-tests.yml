@@ -1,13 +1,9 @@
-name: tests
+name: Fat tests
 
 on:
   workflow_dispatch: 
   schedule:
   - cron: '15 5 * * *'
-  workflow_run:
-    workflows: ["Update ISBN-ranges via generate.py"]  # name of the Update-workflow
-    types:
-      - completed
 
 permissions: read-all
 
@@ -18,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         # https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-the-python-version-input
-        python-version: ['3.9', '3.10', '3.11', '3.12-dev', 'pypy3.9']
+        python-version: ['3.9', '3.10', '3.11', '3.x', 'pypy3.x']
     env:
       GITHUB_OS: linux
     steps:
@@ -43,13 +39,13 @@ jobs:
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
-        python -B -m pytest --cov-config=setup.cfg isbnlib/test
+        python -B -m pytest --cov-config=isbnlib/test/pytest.cfg isbnlib/test
 
   basic-tests-macos:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: ['3.x']
     env:
       GITHUB_OS: macos
     steps:
@@ -64,13 +60,13 @@ jobs:
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
-        pytest -v --cov-config=./setup.cfg ./isbnlib/test
+        pytest -v --cov-config=isbnlib/test/pytest.cfg isbnlib/test
 
   basic-tests-windows:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.x]
+        python-version: ['3.x']
     env:
       GITHUB_OS: windows
     steps:
@@ -85,4 +81,4 @@ jobs:
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
-        pytest -v --cov-config=./setup.cfg ./isbnlib/test
+        pytest -v --cov-config=isbnlib/test/pytest.cfg isbnlib/test

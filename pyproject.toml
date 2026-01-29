@@ -5,8 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 dynamic = ["version"]
 name = "isbnlib2"
-#version = "3.11.0b0"
-requires-python = ">= 3.8"
+requires-python = "> 3.8"
 authors = [
   {name = "Alexandre Lima Conde", email = "xlcnd@outlook.com"},
   {name = "Hans-Fritz Pommes", email = "valarmmail@gmx.de"},
@@ -22,10 +21,11 @@ keywords = ["isbn", "isbnlib", "book", "metadata"]
 classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
 
   "Operating System :: OS Independent",
   "Development Status :: 5 - Production/Stable",
@@ -46,3 +46,10 @@ exclude = ["isbnlib.test*"]
 
 [tool.setuptools.dynamic]
 version = {attr = "isbnlib.__version__"}
+
+#[tool:pytest]
+#addopts = --cov-config=isbnlib/test/pytest.cfg
+#testpaths =
+#    isbnlib/test
+#markers =
+#    network: tests requiring network connection
