@@ -39,7 +39,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
-        python -B -m pytest --cov-config=isbnlib/test/pytest.cfg isbnlib/test
+        python -B -m pytest
 
   basic-tests-macos:
     runs-on: macos-latest
@@ -60,7 +60,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
-        pytest -v --cov-config=isbnlib/test/pytest.cfg isbnlib/test
+        pytest -v
 
   basic-tests-windows:
     runs-on: windows-latest
@@ -81,4 +81,4 @@ jobs:
     - name: Test with pytest
       run: |
         pip install wheel pytest coverage pytest-cov
-        pytest -v --cov-config=isbnlib/test/pytest.cfg isbnlib/test
+        pytest -v

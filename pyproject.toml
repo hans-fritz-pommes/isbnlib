@@ -47,9 +47,7 @@ exclude = ["isbnlib.test*"]
 [tool.setuptools.dynamic]
 version = {attr = "isbnlib.__version__"}
 
-#[tool:pytest]
-#addopts = --cov-config=isbnlib/test/pytest.cfg
-#testpaths =
-#    isbnlib/test
-#markers =
-#    network: tests requiring network connection
+[tool.pytest]
+addopts = ["-v", "--cov-config=setup.cfg"]
+testpaths =["isbnlib/test"]
+markers = ["network: tests requiring network connection"]
