@@ -9,20 +9,6 @@ LOGGER = logging.getLogger(__name__)
 
 
 # pylint: disable=broad-except
-def _worker1(name, task, arg):
-    try:
-        results[name] = task(arg)
-    except Exception:  # pragma: no cover
-        LOGGER.debug(
-            "No result in 'parallel' for %s[%s](%s)",
-            task,
-            name,
-            arg,
-        )
-        results[name] = None
-
-
-# pylint: disable=broad-except
 def _worker2(name, task, arg, q):
         try:  # pragma: no cover
             q.put((name, task(arg)))
@@ -54,11 +40,24 @@ def serial(named_tasks, arg):
     return results
 
 
+# pylint: disable=broad-except
 def parallel(named_tasks, arg):
     """Use threaded calls."""
     from threading import Thread
 
     results = {}
+
+    def _worker1(name, task, arg):
+        try:
+            results[name] = task(arg)
+        except Exception:  # pragma: no cover
+            LOGGER.debug(
+                "No result in 'parallel' for %s[%s](%s)",
+                task,
+                name,
+                arg,
+            )
+            results[name] = None
 
     for name, task in named_tasks:
         t = Thread(target=_worker1, args=(name, task, arg))
@@ -75,7 +74,7 @@ def multi(named_tasks, arg):
     q = Queue()
 
     for name, task in named_tasks:
-        p = Process(target=_worker1, args=(name, task, arg, q))
+        p = Process(target=_worker2, args=(name, task, arg, q))
         p.start()
         p.join(options.get('THREADS_TIMEOUT'))
     q.put('STOP')
