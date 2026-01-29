@@ -5,7 +5,6 @@
 # fmt:off
 # copied from: https://github.com/xlcnd/isbnlib/pull/120
 
-
 from urllib.request import urlopen
 from datetime import datetime, timezone
 from time import sleep
@@ -82,13 +81,13 @@ def clean(s, style='mask'):
 
 def restore():
     for file in[MASKFILE,INFOFILE]:
-        if os.path.exists(file+'.old') and os.path.isfile(file+'.old'):
-            f=open(file+'.old','rb')
+        if os.path.exists(file.replace(".py","old.py")) and os.path.isfile(file.replace(".py","old.py")):
+            f=open(file.replace(".py","old.py"),'rb')
             g=open(file,'wb')
             g.write(f.read())
             f.close()
             g.close()
-            os.remove(file+'.old')
+            os.remove(file.replace(".py","old.py"))
 
 def update():
     generatetime = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -103,13 +102,11 @@ def update():
     if retrys==2:
         raise TimeoutError('Too many failed retrys accessing "'+RANGEFILEURL+'"')
 
-    rm_old_exists=False
-
     for file in[MASKFILE,INFOFILE]:
         if os.path.exists(file) and os.path.isfile(file):
-            if os.path.exists(file+'.old') and os.path.isfile(file+".old"):
-                os.remove(file+".old")
-            os.rename(file,file+".old")
+            if os.path.exists(file.replace(".py","old.py")) and os.path.isfile(file.replace(".py","old.py")):
+                os.remove(file.replace(".py","old.py"))
+            os.rename(file,file.replace(".py","old.py"))
 
     f=open('RangeMessage.xml','wb')
     f.write(r.read())
