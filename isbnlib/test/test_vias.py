@@ -41,13 +41,13 @@ def test_vias_parallel():
 
 def test_vias_multi():
     """Test 'vias' (multi)."""
-    # Is NOT allowed in Windows & macOS!
+    # multiprocessing.set_start_method("fork") Is NOT allowed in Windows & macOS!
     if os.getenv('GITHUB_OS', '') in ('windows', 'macOS'):
-        assert True
-        return
+        import multiprocessing as mp
+        mp.set_start_method("spawn")
     if platform.system() in ('Windows', 'Darwin'):
-        assert True
-        return
+        import multiprocessing as mp
+        mp.set_start_method("spawn")
     named_tasks = (('task1', task1), ('task2', task2))
     results = vias.multi(named_tasks, 5)
     data1 = results.get('task1', 0)
