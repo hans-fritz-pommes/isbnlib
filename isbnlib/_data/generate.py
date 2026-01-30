@@ -180,6 +180,8 @@ def update():
 
 if __name__ == '__main__':
     update()
+    changed=data_changed()
+    print(changed)
     with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-        print("update_required="+str(data_changed()).lower(), file=fh)
+        print("update_required="+str(changed).lower(), file=fh)
 
