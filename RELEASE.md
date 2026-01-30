@@ -1,8 +1,7 @@
-**New Release 3.11.2**
+**New Release 3.11.3**
 
 ## What's Changed
-* Some improvements, automations
-* New ISBN-ranges-data
+* 
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.1...v3.11.2
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.2...v3.11.3
