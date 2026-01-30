@@ -79,7 +79,9 @@ def clean(s, style='mask'):
         s = s.replace("': '", "':'")
     return s
 
+
 def restore():
+    """Try to restore eventual backup files"""
     for file in[MASKFILE,INFOFILE]:
         if os.path.exists(file.replace(".py","old.py")) and os.path.isfile(file.replace(".py","old.py")):
             f=open(file.replace(".py","old.py"),'rb')
@@ -88,6 +90,30 @@ def restore():
             f.close()
             g.close()
             os.remove(file.replace(".py","old.py"))
+
+
+def data_changed():
+    """Check if the old and the new datafiles have different data"""
+    for file in[MASKFILE,INFOFILE]:
+        if not os.path.exists(file.replace(".py","old.py")) or not os.path.isfile(file.replace(".py","old.py")):
+            return False
+
+    import data4info as i
+    import data4infoold as iold
+
+    if iold.countries!=i.countries:
+        return True
+    if iold.identifiers!=i.identifiers:
+        return True
+
+    import data4mask as m
+    import data4maskold as mold
+
+    if m.ranges!=mold.ranges:
+        return True
+    
+    return False
+
 
 def update():
     generatetime = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -154,3 +180,6 @@ def update():
 
 if __name__ == '__main__':
     update()
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+        print("update_required="+str(data_changed()).lower(), file=fh)
+

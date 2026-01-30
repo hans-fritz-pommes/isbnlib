@@ -7,7 +7,7 @@ from ._core import EAN13
 from ._cover import cover as gcover
 from ._desc import goo_desc
 from ._editions import editions as eds
-from ._gwords import goos
+from ._dwords import doos
 from ._infogroup import infogroup
 from ._metadata import query
 from ._msk import msk
@@ -40,7 +40,7 @@ def editions(isbn, service='merge'):
 
 def isbn_from_words(words):
     """Return the most probable ISBN from a list of words."""
-    return goos(words)
+    return doos(words)
 
 
 def doi(isbn):

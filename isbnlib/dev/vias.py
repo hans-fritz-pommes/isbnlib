@@ -10,16 +10,16 @@ LOGGER = logging.getLogger(__name__)
 
 # pylint: disable=broad-except
 def _worker2(name, task, arg, q):
-        try:  # pragma: no cover
-            q.put((name, task(arg)))
-        except Exception:  # pragma: no cover
-            LOGGER.debug(
-                "No result in 'multi' for %s[%s](%s)",
-                task,
-                name,
-                arg,
-            )
-            q.put((name, None))
+    try:  # pragma: no cover
+        q.put((name, task(arg)))
+    except Exception:  # pragma: no cover
+        LOGGER.debug(
+            "No result in 'multi' for %s[%s](%s)",
+            task,
+            name,
+            arg,
+        )
+        q.put((name, None))
 
 
 # pylint: disable=broad-except

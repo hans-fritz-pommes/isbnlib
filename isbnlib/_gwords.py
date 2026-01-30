@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Use Google to get an ISBN from words from title and author's name."""
+"""Use DuckDuckGo to get an ISBN from words from title and author's name."""
 
 import logging
 from urllib.parse import quote
@@ -11,7 +11,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 @cache
-def goos(words):
+def doos(words):
     """Use DuckDuckGo - HTML to get an ISBN from words from title and author's name.""" # Google is making too complex responses
     service_url = 'https://html.duckduckgo.com/html?q=ISBN+'
     search_url = service_url + quote(words.replace(' ', '+'))
