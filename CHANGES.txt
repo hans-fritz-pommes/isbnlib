@@ -69,4 +69,4 @@ v3.10.14, 2023-04-26 -- Fix issue #123.
 v3.11.0b0, 2026-01-27 -- TENTATIVE
 v3.11.0, 2026-01-28 -- Sorted a lot of stuff and repaired goob and mask + new data for mask & info
 v3.11.1, 2026-01-28 -- First time automatic publish - identical to 3.11.0
-v3.11.2, 2026-01-30 -- TENTATIVE
+v3.11.2, 2026-01-30 -- New ISBN-ranges, automations and stuff
