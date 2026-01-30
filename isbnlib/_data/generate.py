@@ -122,10 +122,12 @@ def update():
         try:
             r = urlopen(RANGEFILEURL)
             print('Accessing "'+RANGEFILEURL+'"')
+            LOGGER.info('Accessing "'+RANGEFILEURL+'"')
             break
         except urllib.error.HTTPError:
             retrys+=1
     if retrys==2:
+        LOGGER.critical('Too many failed retrys accessing "'+RANGEFILEURL+'"')
         raise TimeoutError('Too many failed retrys accessing "'+RANGEFILEURL+'"')
 
     for file in[MASKFILE,INFOFILE]:
@@ -137,6 +139,7 @@ def update():
     f=open('RangeMessage.xml','wb')
     f.write(r.read())
     f.close()
+    LOGGER.info("RangeMessage.xml downloaded in "+str(retrys+1)+" tries")
     print("RangeMessage.xml downloaded in "+str(retrys+1)+" tries")
 
     dom = minidom.parse('RangeMessage.xml')
@@ -168,11 +171,13 @@ def update():
     with open(MASKFILE, 'w',encoding="utf-8") as mask:
         mask.write(maskdata)
         mask.close()
+        LOGGER.info("MASKFILE written")
         print("MASKFILE written")
 
     with open(INFOFILE, 'w',encoding="utf-8") as info:
         info.write(infodata)
         info.close()
+        LOGGER.info("INFOFILE written")
         print("INFOFILE written")
     
     os.remove("RangeMessage.xml")
@@ -181,7 +186,10 @@ def update():
 if __name__ == '__main__':
     update()
     changed=data_changed()
-    print(changed)
-    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-        print("update_required="+str(changed).lower(), file=fh)
-
+    if changed:
+        LOGGER.info("New ISBN-ranges")
+        print("New ISBN-ranges")
+    if "GITHUB_OUTPUT"in os.environ:
+        with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+            fh.write("update_required="+str(changed).lower())
+            fh.close()
