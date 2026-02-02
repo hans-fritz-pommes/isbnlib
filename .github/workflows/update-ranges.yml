@@ -9,6 +9,7 @@ permissions: read-all
 
 jobs:
   run-python-script:
+    if: github.ref == 'refs/heads/dev'
     permissions:
       contents: write
 
