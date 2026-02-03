@@ -12,8 +12,7 @@ jobs:
     name: Create Release
     permissions:
       contents: write # to create release
-    outputs:
-      release_created: ${{ steps.create_release.outcome == 'success' }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
