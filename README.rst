@@ -386,7 +386,7 @@ stackoverflow_.
     :target: https://github.com/hans-fritz-pommes/isbnlib/actions/workflows/codeql-analysis.yml
 
 
-.. _github: https://github.com/xlcnd/isbnlib/discussions
+.. _github: https://github.com/hans-fritz-pommes/isbnlib
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
@@ -398,9 +398,9 @@ stackoverflow_.
 
 .. _stackoverflow: http://stackoverflow.com/search?tab=newest&q=isbnlib
 
-.. _test_core: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_core.py
+.. _test_core: https://github.com/hans-fritz-pommes/isbnlib/blob/main/isbnlib/test/test_core.py
 
-.. _test_ext: https://github.com/xlcnd/isbnlib/blob/master/isbnlib/test/test_ext.py
+.. _test_ext: https://github.com/hans-fritz-pommes/isbnlib/blob/main/isbnlib/test/test_ext.py
 
 .. _isbn-international.org: https://www.isbn-international.org/content/what-isbn
 
@@ -414,9 +414,7 @@ stackoverflow_.
 
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
-.. _goob: https://github.com/xlcnd/isbnlib/blob/dev/isbnlib/_goob.py
-
-.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib&submit=search
+.. _goob: https://github.com/xlcnd/hans-fritz-pommes/blob/main/isbnlib/_goob.py
 
 .. _51: https://github.com/xlcnd/isbnlib/issues/51
 
@@ -430,6 +428,6 @@ stackoverflow_.
 
 .. _porbase: https://github.com/xlcnd/isbnlib-porbase/blob/dev/isbnlib_porbase/_porbase.py
 
-.. _project: https://github.com/xlcnd/isbnlib/issues?q=is%3Aissue+is%3Aopen+label%3Aproject
+.. _project: https://github.com/hans-fritz-pommes/isbnlib/issues?q=is%3Aissue+is%3Aopen+label%3Aproject
 
 .. _138: https://github.com/xlcnd/isbnlib/issues/138
