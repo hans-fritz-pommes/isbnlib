@@ -2,8 +2,6 @@ on:
   push:
     tags:
       - 'v*'
-    branches:
-      - main
 
 permissions: read-all
 
@@ -12,7 +10,6 @@ name: Create Release
 jobs:
   build:
     name: Create Release
-    if: github.ref_name == 'main'
     permissions:
       contents: write # to create release
     outputs:
