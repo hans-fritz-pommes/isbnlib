@@ -12,8 +12,11 @@ name: Create Release
 jobs:
   build:
     name: Create Release
+    if: github.ref_name == 'main'
     permissions:
       contents: write # to create release
+    outputs:
+      release_created: ${{ steps.create_release.outcome == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
