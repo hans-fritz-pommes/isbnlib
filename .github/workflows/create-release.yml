@@ -9,11 +9,11 @@ name: Create Release
 
 jobs:
   build:
+    if: github.ref_name == 'main'
     name: Create Release
     permissions:
       contents: write # to create release
-    outputs:
-      release_created: ${{ steps.create_release.outcome == 'success' }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,4 +34,11 @@ jobs:
           draft: false
           prerelease: false
   publish:
+<<<<<<< HEAD
+=======
+    if: github.ref_name == 'main'
+    permissions:
+      actions: write
+      id-token: write
+>>>>>>> 1bd14636a3e8142a05d3b49c6b8271b671a8737b
     uses: ./.github/workflows/publish-pypi.yml

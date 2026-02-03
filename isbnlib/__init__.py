@@ -91,5 +91,9 @@ __all__ = (
     '__support__',
     '__version__',
 )
+<<<<<<< HEAD
 __version__ = '3.11.5'
+=======
+__version__ = '3.11.6'
+>>>>>>> 1bd14636a3e8142a05d3b49c6b8271b671a8737b
 __support__ = 'py38, py39, py310, py311, py312, py313, pypy, pypy3'
