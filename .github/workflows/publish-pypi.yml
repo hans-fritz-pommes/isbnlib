@@ -3,8 +3,6 @@ name: Publish Python 🐍 distribution 📦 to PyPI
 on:
   workflow_call: 
 
-permissions: read-all
-
 jobs:
   build:
     permissions:
