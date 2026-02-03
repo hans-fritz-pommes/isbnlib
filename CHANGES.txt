@@ -72,3 +72,4 @@ v3.11.1, 2026-01-28 -- First time automatic publish - identical to 3.11.0
 v3.11.2, 2026-01-30 -- New ISBN-ranges, automations and stuff - not on pypi (bug in workflow)
 v3.11.3, 2026-01-31 -- not much
 v3.11.4, 2026-02-03 -- new ranges & updated AUTHORS.md
+v3.11.5, 2026-02-03 -- see v3.11.4
