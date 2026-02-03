@@ -1,14 +1,20 @@
 name: Publish Python 🐍 distribution 📦 to PyPI
 
 on:
-  workflow_call: 
-    
+  workflow_run:
+    workflows: ["Create Release"]  # name of the Release-workflow
+    types:
+      - completed
+
 permissions: read-all
 
 jobs:
   build:
     permissions:
       actions: write
+    if: github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.outputs.release_created == 'true'
+  
     name: Build distribution 📦
     runs-on: ubuntu-latest
 
@@ -38,7 +44,8 @@ jobs:
   publish-to-pypi:
     permissions:
       id-token: write  # mandatory for trusted publishing
-
+    if: github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.outputs.release_created == 'true'
     name: Publish Python 🐍 distribution 📦 to PyPI
     needs:
     - build
