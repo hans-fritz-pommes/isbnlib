@@ -9,7 +9,6 @@ name: Create Release
 
 jobs:
   build:
-    if: github.ref_name == 'main'
     name: Create Release
     permissions:
       contents: write # to create release
@@ -34,7 +33,6 @@ jobs:
           draft: false
           prerelease: false
   publish:
-    if: github.ref_name == 'main'
     permissions:
       actions: write
       id-token: write
