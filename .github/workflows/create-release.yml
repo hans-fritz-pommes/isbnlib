@@ -33,3 +33,5 @@ jobs:
           body_path: RELEASE.md
           draft: false
           prerelease: false
+  publish:
+    uses: ./.github/workflows/publish-pypi.yml
