@@ -1,7 +1,7 @@
-**New Release 3.11.3**
+**New Release 3.11.4**
 
 ## What's Changed
-* not much
+* new isbn-ranges and updated AUTHORS.md
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.2...v3.11.3
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.2...v3.11.4
