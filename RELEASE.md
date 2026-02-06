@@ -1,7 +1,8 @@
-**New Release 3.11.6**
+**New Release 3.11.7**
 
 ## What's Changed
-* see v3.11.4
+* fixed bug "KeyError: 0" in ´isbn_from_words´
+* deployed to PyPI again
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.2...v3.11.6
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.2...v3.11.7

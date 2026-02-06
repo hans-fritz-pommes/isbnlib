@@ -73,3 +73,4 @@ v3.11.2, 2026-01-30 -- New ISBN-ranges, automations and stuff - not on pypi (bug
 v3.11.3, 2026-01-31 -- not much
 v3.11.4, 2026-02-03 -- new ranges & updated AUTHORS.md
 v3.11.6, 2026-02-03 -- see v3.11.4
+v3.11.7, 2026-02-06 -- fixed bug "KeyError: 0" in isbn_from_words

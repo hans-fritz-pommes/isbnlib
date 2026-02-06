@@ -3,8 +3,6 @@ name: Small tests
 on:
   push:
   pull_request:
-  schedule:
-  - cron: '15 6 * * *'
   workflow_run:
     workflows: ["Update ISBN-ranges via generate.py"]  # name of the Update-workflow
     types:
