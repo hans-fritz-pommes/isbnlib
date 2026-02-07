@@ -11,7 +11,6 @@ adventure in open-source.
 
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
 2. Submit a ticket for your issue or idea (**ONE ticket for each issue or idea**)
-   ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
    on https://github.com/hans-fritz-pommes/isbnlib/issues,
    (if possible wait for some feedback before any serious commitment... :)
 3. **Fork** the repository on GitHub and **clone it locally**
