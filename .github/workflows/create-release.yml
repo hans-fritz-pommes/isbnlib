@@ -2,8 +2,6 @@ on:
   push:
     tags:
       - 'v*'
-    branches:
-      - main
 
 permissions: read-all
 
@@ -12,11 +10,9 @@ name: Create Release
 jobs:
   build:
     name: Create Release
-    if: github.ref_name == 'main'
     permissions:
       contents: write # to create release
-    outputs:
-      release_created: ${{ steps.create_release.outcome == 'success' }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -36,3 +32,8 @@ jobs:
           body_path: RELEASE.md
           draft: false
           prerelease: false
+  publish:
+    permissions:
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/publish-pypi.yml

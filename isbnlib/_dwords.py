@@ -29,26 +29,20 @@ def doos(words):
     isbns = get_isbnlike(content)
     isbn = ''
     possible_isbns_to_return={}
-    try:
-        for item in isbns:
-            isbn = get_canonical_isbn(item, output='isbn13')
-            if isbn:  # pragma: no cover
-                if isbn in possible_isbns_to_return:
-                    possible_isbns_to_return[isbn]+=1
-                else:
-                    possible_isbns_to_return[isbn]=1
-    except IndexError:  # pragma: no cover
-        pass
+    for item in isbns:
+        isbn = get_canonical_isbn(item, output='isbn13')
+        if isbn:
+            if isbn in possible_isbns_to_return:
+                possible_isbns_to_return[isbn]+=1
+            else:
+                possible_isbns_to_return[isbn]=1
     if len(possible_isbns_to_return)>0:
-        if len(possible_isbns_to_return)>1:
-            max_count=0
-            for e in possible_isbns_to_return:
-                if possible_isbns_to_return[e]>=max_count: # >= because the isbns are rather at the end of the search
-                    isbn=e
-                    max_count=possible_isbns_to_return[e]
-        else:
-            isbn=possible_isbns_to_return[0]
-    else:  # pragma: no cover
+        max_count=0
+        for e in possible_isbns_to_return:
+            if possible_isbns_to_return[e]>=max_count: # >= because the isbns are rather at the end of the search
+                isbn=e
+                max_count=possible_isbns_to_return[e]
+    else:
         LOGGER.debug('No ISBN found for %s', words)
         isbn=''
     return isbn
