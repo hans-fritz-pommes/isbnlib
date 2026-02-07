@@ -3,7 +3,7 @@
 `isbnlib` has a very small code base, so it is a good project to begin your
 adventure in open-source.
 
-> **NOTE**: By contributing you agree with the [license terms](LICENSE-LGPL.txt)
+> **NOTE**: By contributing you agree with the [license terms](LICENSE-LGPL-3.0.txt)
   (**LGPL v3**) of the project.
 
 
@@ -23,7 +23,7 @@ adventure in open-source.
 6. Write tests for your code using `pytest` and put then in the directory `isbnlib/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage locally with the command
-   `pytest -v --cov-config=setup.cfg isbnlib/test`.
+   `pytest`.
 8. **Check if all requirements are fulfilled**!
 9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
