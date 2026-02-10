@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 dynamic = ["version"]
 name = "isbnlib2"
-requires-python = "> 3.8"
+requires-python = ">= 3.10"
 authors = [
   {name = "Alexandre Lima Conde", email = "xlcnd@outlook.com"},
   {name = "Hans-Fritz Pommes", email = "valarmmail@gmx.de"},
@@ -21,7 +21,6 @@ keywords = ["isbn", "isbnlib", "book", "metadata"]
 classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
