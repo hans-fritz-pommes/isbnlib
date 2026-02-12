@@ -3,7 +3,7 @@
 `isbnlib` has a very small code base, so it is a good project to begin your
 adventure in open-source.
 
-> **NOTE**: By contributing you agree with the [license terms](LICENSE.txt)
+> **NOTE**: By contributing you agree with the [license terms](LICENSE)
   (**LGPL v3**) of the project.
 
 
