@@ -136,7 +136,7 @@ def test_get_isbnlike():
 
 def test_get_canonical_isbn():
     """Test the extraction of canonical ISBN from ISBN-like string."""
-    assert get_canonical_isbn('0826497527', output='bouth') == '0826497527'
+    assert get_canonical_isbn('0826497527', output='both') == '0826497527'
     assert get_canonical_isbn('0826497527') == '0826497527'
     assert get_canonical_isbn('0826497527', output='isbn10') == '0826497527'
     assert get_canonical_isbn('0826497527', output='isbn13') == '9780826497529'
