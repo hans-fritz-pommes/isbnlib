@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         # https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-the-python-version-input
-        python-version: ['3.9', '3.10', '3.12', '3.x', 'pypy3.11']
+        python-version: ['3.10', '3.12', '3.13', '3.x', 'pypy3.11']
     env:
       GITHUB_OS: linux
     steps:

@@ -3,7 +3,7 @@
 `isbnlib` has a very small code base, so it is a good project to begin your
 adventure in open-source.
 
-> **NOTE**: By contributing you agree with the [license terms](LICENSE-LGPL.txt)
+> **NOTE**: By contributing you agree with the [license terms](LICENSE)
   (**LGPL v3**) of the project.
 
 
@@ -11,8 +11,7 @@ adventure in open-source.
 
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
 2. Submit a ticket for your issue or idea (**ONE ticket for each issue or idea**)
-   ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
-   on https://github.com/hans-fritz-pommes/isbnlib/issues,
+   on https://github.com/hans-fritz-pommes/isbnlib/issues
    (if possible wait for some feedback before any serious commitment... :)
 3. **Fork** the repository on GitHub and **clone it locally**
    ([help](https://help.github.com/articles/fork-a-repo)).
@@ -23,7 +22,7 @@ adventure in open-source.
 6. Write tests for your code using `pytest` and put then in the directory `isbnlib/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage locally with the command
-   `pytest -v --cov-config=setup.cfg isbnlib/test`.
+   `pytest`.
 8. **Check if all requirements are fulfilled**!
 9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
@@ -46,10 +45,7 @@ for fellow developers. Make your code as clear as possible.
 
 **Don't submit pull requests that are only comments to the code that is
 already in the repo!**
-Don't expect kindness if you do that :) You **can** comment and give
-suggestions on the code at the
-[issues](https://github.com/hans-fritz-pommes/isbnlib/issues/5) page
-or use the link **`Give feedback`** at the bottom of each Github page.
+Don't expect kindness if you do that :) You can use the link **`Give feedback`** at the bottom of each Github page.
 
 **No** doc tests! Remember point 6 above.
 
@@ -59,7 +55,7 @@ or use the link **`Give feedback`** at the bottom of each Github page.
 
 ## Suggestions
 
-Goto [issues/enhancement](https://github.com/hans-fritz-pommes/isbnlib/issues?labels=enhancement&page=1&state=open)
+Goto [issues/enhancement](https://github.com/hans-fritz-pommes/isbnlib/issues?q=state%3Aopen%20label%3Aenhancement)
 for possible enhancements to the code.
 If you have some idea that is not there enter your own.
 Select some focused issue and enter some comments on how you plan to tackle it.
