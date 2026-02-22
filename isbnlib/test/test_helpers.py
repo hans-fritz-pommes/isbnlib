@@ -31,11 +31,11 @@ def test_parse_placeholders():
 
 def test_fake_isbn():
     """Test the 'fake_isbn' function."""
-    assert fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ') == '1111006407537'
+    assert fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ') == '1827353866006'
     assert (
-        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author='') == '1108449680873')
+        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author='') == '1775091437830')
     assert (
-        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=' ') == '1108449680873')
+        fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author=' ') == '1775091437830')
     assert (
         fake_isbn(' Hello?? Wer,  ! ksDf:  asdf. ; ', author='', publisher='') ==
         '1181593982422')
