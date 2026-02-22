@@ -207,16 +207,16 @@ def get_isbnlike(text, level='normal'):
     return isbnlike.findall(text)
 
 
-def get_canonical_isbn(isbnlike, output='bouth'):
+def get_canonical_isbn(isbnlike, output='both'):
     """Extract ISBNs and transform them to the canonical form.
 
     output:
     isbn10
     isbn13
-    bouth  (default)
+    both  (default)
 
     """
-    if output not in ('bouth', 'isbn10', 'isbn13'):  # pragma: no cover
+    if output not in ('both', 'isbn10', 'isbn13'):  # pragma: no cover
         LOGGER.error('output as no option %s', output)
         return ''
 
@@ -243,7 +243,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
         # If checksum OK return a `canonical` ISBN
         if str(check) == last:
-            if output == 'bouth':
+            if output == 'both':
                 return cisbn
             if output == 'isbn10':
                 return cisbn if len(cisbn) == 10 else to_isbn10(cisbn)
