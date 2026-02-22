@@ -1,0 +1,4 @@
+ERROR:isbnlib._core:output has no option bouthtd
+ERROR:isbnlib._core:output has no option bouthtd
+ERROR:isbnlib._core:"bouth" is a typo - do not use it again (this extra warning will be removed in a future version)
+ERROR:isbnlib._core:[func get_canonical_isbn] param output has no option bouthtd

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # isbnlib - tools for extracting, cleaning and transforming ISBNs
-# Copyright (C) 2014-2023 Alexandre Lima Conde
+# Copyright (C) 2014-2023 Alexandre Lima Conde 2026-2026 Hans-Fritz Pommes
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
@@ -174,7 +174,7 @@ def notisbn(isbnlike, level='strict'):
 
     """
     if level not in ('strict', 'loose'):  # pragma: no cover
-        LOGGER.error('level as no option %s', level)
+        LOGGER.error('[func notisbn] param level has no option "%s"', level)
         return None
     isbnlike = canonical(isbnlike)
     if len(isbnlike) not in (10, 13):
@@ -190,9 +190,9 @@ def get_isbnlike(text, level='normal'):
     """Extract all substrings that seem like ISBNs.
 
     level:
-    strict almost as certain they are ISBNs
-    normal (default)
-    loose  catch many as possible
+    strict - almost as certain they are ISBNs
+    normal - (default)
+    loose  - catch as many as possible
 
     """
     if level == 'normal':  # pragma: no cover
@@ -202,7 +202,7 @@ def get_isbnlike(text, level='normal'):
     elif level == 'loose':
         isbnlike = RE_LOOSE
     else:
-        LOGGER.error('level as no option %s', level)
+        LOGGER.error('[func get_isbnlike] param level has no option "%s"', level)
         return []
     return isbnlike.findall(text)
 
@@ -216,8 +216,15 @@ def get_canonical_isbn(isbnlike, output='both'):
     both  (default)
 
     """
+
+    # bouth is deprecated #
+    if output=="bouth":
+        LOGGER.error('[func get_canonical_isbn] "bouth" is a typo - do not use it again (this extra warning will be removed in a future version)')
+        raise DeprecationWarning('"bouth" is a typo - do not use it again (this extra warning will be removed in a future version)')
+    # bouth is deprecated #
+
     if output not in ('both', 'isbn10', 'isbn13'):  # pragma: no cover
-        LOGGER.error('output as no option %s', output)
+        LOGGER.error('[func get_canonical_isbn] param output has no option "%s"', output)
         return ''
 
     regex = RE_NORMAL
