@@ -1,9 +1,10 @@
 **New Release 3.11.8**
 
 ## What's Changed
-* new isbn-ranges-data for "979-8"
+* new isbn-ranges-data
 * not supporting Python 3.9 and older any more because they're EOL:
     https://endoflife.date/python
+* corrected typos (issue #17)
 * won't release until license stuff is cleared
 
 

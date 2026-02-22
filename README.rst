@@ -91,7 +91,7 @@ Main Functions
 ``get_isbnlike(text, level='normal')``
     Extracts all substrings that seem like ISBNs (very useful for scraping).
 
-``get_canonical_isbn(isbnlike, output='bouth')``
+``get_canonical_isbn(isbnlike, output='both')``
     Extracts ISBNs and transforms them to the canonical form.
 
 ``ean13(isbnlike)``
