@@ -29,9 +29,8 @@ class WEBService:
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
         # TODO(use urllib.quote to the non-ascii part?)
-        self._sanitized_url = url.split("?")[0]+"[parameters removed]"
         if not url.lower().startswith('http'):
-            LOGGER.critical('Url (%s) not allowed!', self._sanitized_url)
+            LOGGER.critical('Url (not logged here) not allowed!')
             raise ISBNLibURLError('Url (%s) not allowed!' % url)
         self._url = url
         # headers to accept gzipped content
@@ -57,8 +56,7 @@ class WEBService:
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical(
-                'ISBNLibHTTPError for %s with code %s [%s]',
-                self._sanitized_url,
+                'ISBNLibHTTPError for (URL not logged here) with code %s [%s]',
                 e.code,
                 e.msg,
             )
@@ -70,15 +68,13 @@ class WEBService:
                 raise ISBNLibHTTPError(e.msg,e.code)
         except URLError as e:  # pragma: no cover
             LOGGER.critical(
-                'ISBNLibURLError for %s with reason %s',
-                self._url,
+                'ISBNLibURLError for (URL not logged here) with reason %s',
                 e.reason,
             )
             raise ISBNLibURLError(e.reason)
         except sockettimeout:  # pragma: no cover
             LOGGER.critical(
-                'ServiceIsDownError for %s with reason %s',
-                self._sanitized_url,
+                'ServiceIsDownError for (URL not logged here) with reason %s',
                 'timeout',
             )
             msg = 'service timeout'
