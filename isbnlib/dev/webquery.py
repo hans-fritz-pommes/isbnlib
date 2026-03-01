@@ -37,13 +37,13 @@ class WEBQuery:
         if data_checker:
             return data_checker(self.data)
         if self.data == '{}':
-            LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
+            LOGGER.warning('DataNotFoundAtServiceError for (URL not logged here)')
             raise DataNotFoundAtServiceError(self.url)
         if BOOK_NOT_FOUND in self.data:
-            LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
+            LOGGER.warning('DataNotFoundAtServiceError for (URL not logged here)')
             raise DataNotFoundAtServiceError(self.url)
         if OUT_OF_SERVICE in self.data:
-            LOGGER.critical('ServiceIsDownError for %s', self.url)
+            LOGGER.critical('ServiceIsDownError for (URL not logged here)')
             raise ServiceIsDownError(self.url)
         return True
 
