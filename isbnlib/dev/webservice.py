@@ -29,8 +29,9 @@ class WEBService:
     def __init__(self, url, user_agent=UA, values=None, appheaders=None):
         """Initialize main properties."""
         # TODO(use urllib.quote to the non-ascii part?)
+        self._sanitized_url = url.split("?")[0]+"[parameters removed]"
         if not url.lower().startswith('http'):
-            LOGGER.critical('Url (%s) not allowed!', url)
+            LOGGER.critical('Url (%s) not allowed!', self._sanitized_url)
             raise ISBNLibURLError('Url (%s) not allowed!' % url)
         self._url = url
         # headers to accept gzipped content
@@ -57,7 +58,7 @@ class WEBService:
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical(
                 'ISBNLibHTTPError for %s with code %s [%s]',
-                self._url,
+                self._sanitized_url,
                 e.code,
                 e.msg,
             )
@@ -77,7 +78,7 @@ class WEBService:
         except sockettimeout:  # pragma: no cover
             LOGGER.critical(
                 'ServiceIsDownError for %s with reason %s',
-                self._url,
+                self._sanitized_url,
                 'timeout',
             )
             msg = 'service timeout'
