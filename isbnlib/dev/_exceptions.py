@@ -18,6 +18,7 @@ class ISBNLibDevException(ISBNLibException):
     """
 
     def __init__(self, msg=None):
+        self.msg=msg
         if msg:
             self.message = f'{self.message} ({msg})'
 
@@ -29,6 +30,12 @@ class ISBNLibHTTPError(ISBNLibDevException):
     """Exception raised for HTTP related errors."""
 
     message = 'an HTTP error has occurred'
+
+    def __init__(self, msg=None, code=None):
+        self.code=code
+        if self.code:
+            msg=f'{self.code}: {msg}'
+        ISBNLibDevException.__init__(self,msg)
 
 
 class ISBNLibURLError(ISBNLibDevException):
@@ -83,6 +90,11 @@ class NoAPIKeyError(ISBNLibDevException):
     """Exception raised when the API Key for a service is not found."""
 
     message = 'this service needs an API key'
+
+class WrongAPIKeyError(ISBNLibDevException):
+    """Exception raised when the API Key for a service was wrong."""
+
+    message = 'this API key was wrong'
 
 
 # pylint: disable=redefined-builtin

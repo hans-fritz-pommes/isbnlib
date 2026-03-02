@@ -4,14 +4,16 @@
 import logging
 
 from .dev import stdmeta
-from .dev._exceptions import ISBNNotConsistentError, RecordMappingError
+from .dev._exceptions import ISBNNotConsistentError, RecordMappingError, ISBNLibHTTPError, WrongAPIKeyError
 from .dev.webquery import query as wquery
+
+from .config import apikeys
 
 UA = 'isbnlib (gzip)'
 SERVICE_URL = (
     'https://www.googleapis.com/books/v1/volumes?q={isbn}'
     '&fields=items/volumeInfo(title,subtitle,authors,publisher,publishedDate,'
-    'language,industryIdentifiers,description,imageLinks)&maxResults=1')
+    'language,industryIdentifiers)&maxResults=1&key={api_key}')
 LOGGER = logging.getLogger(__name__)
 
 
@@ -63,12 +65,28 @@ def _records(isbn, data):
     return _mapper(isbn, recs)
 
 
+# pylint: disable=broad-except
 def query(isbn):
     """Query the Google Books (JSON API v1) service for metadata."""
-    data = wquery(SERVICE_URL.format(isbn='isbn:' + isbn), user_agent=UA)
-    if not data:
-        # some times this work (see #119)
-        data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+    api_key=""
+    if apikeys.get("goob",False):
+        api_key=apikeys["goob"]
+
+    try:
+        data = wquery(SERVICE_URL.format(isbn='isbn:' + isbn, api_key=api_key), user_agent=UA)
+        if not data:
+            # some times this works (see #119)
+            data = wquery(SERVICE_URL.format(isbn=isbn, api_key=api_key), user_agent=UA)
+        error_to_raise=None
+    except ISBNLibHTTPError as error:
+        if error.code==400 and api_key:
+            error_to_raise=WrongAPIKeyError(error.msg)
+        else:
+            error_to_raise=error
+    finally:
+        if error_to_raise:
+            raise error_to_raise
+
     if not data:
         LOGGER.debug('No data from "goob" for isbn %s', isbn)
         return {}

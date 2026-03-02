@@ -30,7 +30,7 @@ class WEBService:
         """Initialize main properties."""
         # TODO(use urllib.quote to the non-ascii part?)
         if not url.lower().startswith('http'):
-            LOGGER.critical('Url (%s) not allowed!', url)
+            LOGGER.critical('Url (not logged here) not allowed!')
             raise ISBNLibURLError('Url (%s) not allowed!' % url)
         self._url = url
         # headers to accept gzipped content
@@ -56,30 +56,25 @@ class WEBService:
             LOGGER.debug('Request headers:\n%s', self._request.header_items())
         except HTTPError as e:  # pragma: no cover
             LOGGER.critical(
-                'ISBNLibHTTPError for %s with code %s [%s]',
-                self._url,
+                'ISBNLibHTTPError for (URL not logged here) with code %s [%s]',
                 e.code,
                 e.msg,
             )
             if e.code in (401, 403, 429):
-                raise ISBNLibHTTPError('%s Are you making many requests?' %
-                                       e.code)
-            if e.code in (502, 504):
-                raise ISBNLibHTTPError('%s Service temporarily unavailable!' %
-                                       e.code)
-            msg = f'({e.code}) {e.msg}'
-            raise ISBNLibHTTPError(msg)
+                raise ISBNLibHTTPError('Are you making many requests?',e.code)
+            elif e.code in (502, 504):
+                raise ISBNLibHTTPError('Service temporarily unavailable!',e.code)
+            else:
+                raise ISBNLibHTTPError(e.msg,e.code)
         except URLError as e:  # pragma: no cover
             LOGGER.critical(
-                'ISBNLibURLError for %s with reason %s',
-                self._url,
+                'ISBNLibURLError for (URL not logged here) with reason %s',
                 e.reason,
             )
             raise ISBNLibURLError(e.reason)
         except sockettimeout:  # pragma: no cover
             LOGGER.critical(
-                'ServiceIsDownError for %s with reason %s',
-                self._url,
+                'ServiceIsDownError for (URL not logged here) with reason %s',
                 'timeout',
             )
             msg = 'service timeout'
