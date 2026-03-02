@@ -75,4 +75,4 @@ v3.11.4, 2026-02-03 -- new ranges & updated AUTHORS.md
 v3.11.6, 2026-02-03 -- see v3.11.4
 v3.11.7, 2026-02-06 -- fixed bug "KeyError: 0" in isbn_from_words
 v3.11.8, 2026-02-22 -- updated ranges, fixed typos (#17), dropped python <= 3.9
-v3.11.9, 2026-02-23 -- fixed test fake_isbn, added Google API key
+v3.11.9, 2026-03-02 -- fixed test fake_isbn, added Google API key
