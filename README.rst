@@ -108,7 +108,7 @@ Main Functions
 
 ``meta(isbn, service='default')``
     Gives you the main metadata associated with the ISBN. As the `service` parameter you can use:
-    ``'goob'`` uses the **Google Books service** (**no key is needed**) and
+    ``'goob'`` uses the **Google Books service** (*if you get 429, you might need a key*) and
     **is the default option**,
     ``'wiki'`` uses the **wikipedia.org** API (**no key is needed**),
     ``'openl'`` uses the **OpenLibrary.org** API (**no key is needed**).
