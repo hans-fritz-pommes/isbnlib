@@ -3,7 +3,6 @@
 
 import logging
 from json import loads
-from textwrap import fill
 
 from .dev import cache
 from .dev._exceptions import ISBNLibHTTPError, WrongAPIKeyError
@@ -23,21 +22,21 @@ SERVICE_URL = (
 @cache
 def goo_desc(isbn):
     """Get description from Google Books API."""
-    api_key=""
-    if apikeys.get("goob",False):
-        api_key=apikeys["goob"]
+    api_key = ""
+    if apikeys.get("goob", False):
+        api_key = apikeys["goob"]
 
     try:
         data = wquery(SERVICE_URL.format(isbn='isbn:' + isbn, api_key=api_key), user_agent=UA)
         if not data:
             # some times this works (see #119)
             data = wquery(SERVICE_URL.format(isbn=isbn, api_key=api_key), user_agent=UA)
-        error_to_raise=None
+        error_to_raise = None
     except ISBNLibHTTPError as error:
-        if error.code==400 and api_key:
-            error_to_raise=WrongAPIKeyError(error.msg)
+        if error.code == 400 and api_key:
+            error_to_raise = WrongAPIKeyError(error.msg)
         else:
-            error_to_raise=error
+            error_to_raise = error
     finally:
         if error_to_raise:
             raise error_to_raise
