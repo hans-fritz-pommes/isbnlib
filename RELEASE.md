@@ -1,8 +1,7 @@
-**New Release 3.11.10**
+**New Release 3.11.11**
 
 ## What's Changed
-* removed "wheel"-package from build-system-dependencies (#25)
-* updated isbn-ranges
+* changed deprecation warning text
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.9...v3.11.10
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.10...v3.11.11
