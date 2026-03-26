@@ -219,8 +219,8 @@ def get_canonical_isbn(isbnlike, output='both'):
 
     # bouth is deprecated #
     if output=="bouth":
-        LOGGER.error('[func get_canonical_isbn] "bouth" is a typo - do not use it again (this extra warning will be removed in a future version) - use "both" instead')
-        raise DeprecationWarning('"bouth" is a typo - do not use it again (this extra warning will be removed in a future version) - use "both" instead')
+        LOGGER.error('[func get_canonical_isbn] param output="bouth" is a typo - use "both" instead (this extra warning will be removed in a future version)')
+        raise DeprecationWarning('param output="bouth" is a typo - use "both" instead (this extra warning will be removed in a future version)')
     # bouth is deprecated #
 
     if output not in ('both', 'isbn10', 'isbn13'):  # pragma: no cover
