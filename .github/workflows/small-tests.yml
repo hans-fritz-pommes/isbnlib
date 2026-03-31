@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   workflow_run:
-    workflows: ["Update ISBN-ranges via generate.py"]  # name of the Update-workflow
+    workflows: ["Update ISBN-ranges via generate.py"]  # name of the update-workflow
     types:
       - completed
 

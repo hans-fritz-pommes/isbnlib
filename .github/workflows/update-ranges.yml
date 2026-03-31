@@ -3,7 +3,7 @@ name: Update ISBN-ranges via generate.py
 on:
   workflow_dispatch:
   schedule:
-  - cron: '15 4 * * *'
+  - cron: '15 14 * * *'
 
 permissions: read-all
 
