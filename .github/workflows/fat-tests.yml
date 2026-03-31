@@ -3,7 +3,7 @@ name: Fat tests
 on:
   workflow_dispatch: 
   schedule:
-  - cron: '15 5 * * *'
+  - cron: '15 15 * * *'
 
 permissions: read-all
 

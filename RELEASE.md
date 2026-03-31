@@ -1,8 +1,9 @@
-**New Release 3.11.11**
+**New Release 3.11.12**
 
 ## What's Changed
-* changed deprecation warning text (get_canonical_isbn)
 * updated ranges
+* improved CI/CD test time
+* Added template for Pull Requests
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.10...v3.11.11
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.11...v3.11.12
