@@ -79,3 +79,4 @@ v3.11.9, 2026-03-02 -- fixed test fake_isbn, added Google API key
 v3.11.10, 2026-03-17 -- updated ranges, removed "wheel" dependency from pyproject.toml
 v3.11.11, 2026-03-26 -- updated ranges, updated deprecation warning
 v3.11.12, 2026-03-31 -- updated ranges, improved ci/cd tests time, added pr template
+v3.11.13, 2026-03-31 -- TENTATIVE
