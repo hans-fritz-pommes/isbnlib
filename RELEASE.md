@@ -1,8 +1,7 @@
-**New Release 3.11.13**
+**New Release 3.11.14**
 
 ## What's Changed
-* "repaired" generate.py
-* updated ranges
+* nothing yet
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.12...v3.11.13
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.13...v3.11.14
