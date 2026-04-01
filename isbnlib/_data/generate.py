@@ -130,57 +130,59 @@ def update():
         LOGGER.critical('Too many failed retrys accessing "'+RANGEFILEURL+'"')
         raise TimeoutError('Too many failed retrys accessing "'+RANGEFILEURL+'"')
 
-    for file in[MASKFILE,INFOFILE]:
-        if os.path.exists(file) and os.path.isfile(file):
-            if os.path.exists(file.replace(".py","old.py")) and os.path.isfile(file.replace(".py","old.py")):
-                os.remove(file.replace(".py","old.py"))
-            os.rename(file,file.replace(".py","old.py"))
+    with open('RangeMessage.xml','wb') as f:
+        f.write(r.read())
 
-    f=open('RangeMessage.xml','wb')
-    f.write(r.read())
-    f.close()
     LOGGER.info("RangeMessage.xml downloaded in "+str(retrys+1)+" tries")
     print("RangeMessage.xml downloaded in "+str(retrys+1)+" tries")
 
-    dom = minidom.parse('RangeMessage.xml')
-    nodes = dom.getElementsByTagName('Group')
-    messagedate = dom.getElementsByTagName('MessageDate')[0]
-    rddate = datetime.strptime(messagedate.firstChild.nodeValue, M_DATE_FMT)
-    rddate = datetime.strftime(rddate, '%Y%m%d')
-    ranges = {}
-    countries = {}
-    for node in nodes:
-        prefix = node.getElementsByTagName('Prefix')[0].firstChild.nodeValue
-        agency = node.getElementsByTagName('Agency')[0].firstChild.nodeValue
-        rules = node.getElementsByTagName('Rule')
-        ranges[prefix] = ruletriples(rules)
-        countries[prefix] = agency
+    try:
+        dom = minidom.parse('RangeMessage.xml')
+        nodes = dom.getElementsByTagName('Group')
+        messagedate = dom.getElementsByTagName('MessageDate')[0]
+        rddate = datetime.strptime(messagedate.firstChild.nodeValue.replace("BST","GMT"), M_DATE_FMT) # <- the .replace is quick and very dirty (strptime doesn't support BST)
+        rddate = datetime.strftime(rddate, '%Y%m%d')
+        ranges = {}
+        countries = {}
+        for node in nodes:
+            prefix = node.getElementsByTagName('Prefix')[0].firstChild.nodeValue
+            agency = node.getElementsByTagName('Agency')[0].firstChild.nodeValue
+            rules = node.getElementsByTagName('Rule')
+            ranges[prefix] = ruletriples(rules)
+            countries[prefix] = agency
 
-    identifiers = group_identifiers(countries.keys())
+        identifiers = group_identifiers(countries.keys())
 
-    data = {
-        'generatetime': generatetime,
-        'ranges': ranges,
-        'countries': countries,
-        'identifiers': identifiers,
-        'rddate': rddate}
+        data = {
+            'generatetime': generatetime,
+            'ranges': ranges,
+            'countries': countries,
+            'identifiers': identifiers,
+            'rddate': rddate}
 
-    maskdata = clean((HEADER + MASKBODY).format(**data), 'mask')
-    infodata = clean((HEADER + INFOBODY).format(**data), 'info')
-        
-    with open(MASKFILE, 'w',encoding="utf-8") as mask:
-        mask.write(maskdata)
-        mask.close()
-        LOGGER.info("MASKFILE written")
-        print("MASKFILE written")
+        maskdata = clean((HEADER + MASKBODY).format(**data), 'mask')
+        infodata = clean((HEADER + INFOBODY).format(**data), 'info')
 
-    with open(INFOFILE, 'w',encoding="utf-8") as info:
-        info.write(infodata)
-        info.close()
-        LOGGER.info("INFOFILE written")
-        print("INFOFILE written")
-    
-    os.remove("RangeMessage.xml")
+        for file in[MASKFILE,INFOFILE]:
+            if os.path.exists(file) and os.path.isfile(file):
+                if os.path.exists(file.replace(".py","old.py")) and os.path.isfile(file.replace(".py","old.py")):
+                    os.remove(file.replace(".py","old.py"))
+                os.rename(file,file.replace(".py","old.py"))
+            
+        with open(MASKFILE, 'w',encoding="utf-8") as mask:
+            mask.write(maskdata)
+            mask.close()
+            LOGGER.info("MASKFILE written")
+            print("MASKFILE written")
+
+        with open(INFOFILE, 'w',encoding="utf-8") as info:
+            info.write(infodata)
+            info.close()
+            LOGGER.info("INFOFILE written")
+            print("INFOFILE written")
+
+    finally:
+        os.remove("RangeMessage.xml")
 
 
 if __name__ == '__main__':
