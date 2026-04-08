@@ -80,4 +80,4 @@ v3.11.10, 2026-03-17 -- updated ranges, removed "wheel" dependency from pyprojec
 v3.11.11, 2026-03-26 -- updated ranges, updated deprecation warning
 v3.11.12, 2026-03-31 -- updated ranges, improved ci/cd tests time, added pr template
 v3.11.13, 2026-04-01 -- updated ranges, "repaired" generate.py
-v3.11.14, 2026-04-01 -- TENTATIVE
+v3.11.14, 2026-04-01 -- updated ranges
