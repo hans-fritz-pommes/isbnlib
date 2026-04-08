@@ -91,5 +91,5 @@ __all__ = (
     '__support__',
     '__version__',
 )
-__version__ = '3.11.14'
+__version__ = '3.11.15'
 __support__ = 'py310, py311, py312, py313, pypy, pypy3'
