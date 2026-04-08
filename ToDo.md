@@ -1,0 +1,5 @@
+- [] remove extra deprecation warning in isbnlib/_core.py
+- [] add cover methods for openl
+- [] add description methods for openl
+- [] make cover and description methods more generic (not only Google Books)
+- [] improve BST-timezone-handling in "generate.py"
