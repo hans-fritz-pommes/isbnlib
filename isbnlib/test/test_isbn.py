@@ -29,7 +29,7 @@ def test_doi():
 def test_issued():
     """Test the 'Isbn class' for 'issued'."""
     assert isbn.issued == True
-    isbn2=Isbn('9786610326266')
+    isbn2=Isbn('9786723434759')
     assert isbn2.issued == False
 
 def test_info():
