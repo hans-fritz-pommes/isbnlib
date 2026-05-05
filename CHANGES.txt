@@ -82,3 +82,4 @@ v3.11.12, 2026-03-31 -- updated ranges, improved ci/cd tests time, added pr temp
 v3.11.13, 2026-04-01 -- updated ranges, "repaired" generate.py
 v3.11.14, 2026-04-08 -- updated ranges
 v3.11.16, 2026-05-04 -- updated ranges
+v3.11.17, YYYY-MM-DD -- TENTATIVE
