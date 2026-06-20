@@ -32,8 +32,3 @@ jobs:
           body_path: RELEASE.md
           draft: false
           prerelease: false
-  publish:
-    permissions:
-      actions: write
-      id-token: write
-    uses: ./.github/workflows/publish-pypi.yml
