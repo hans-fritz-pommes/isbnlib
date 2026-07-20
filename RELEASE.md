@@ -1,8 +1,7 @@
-**New Release 3.11.20**
+**New Release 3.11.21**
 
 ## What's Changed
-* improved pypi-workflow: now triggered and not nested anymore
-* updated ranges
+* nothing yet
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.19...v3.11.20
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.20...v3.11.21
