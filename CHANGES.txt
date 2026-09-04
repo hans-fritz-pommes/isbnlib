@@ -87,3 +87,4 @@ v3.11.19, 2026-06-14 -- updated ranges
 v3.11.20, 2026-07-20 -- updated ranges, github actions
 v3.11.21, 2026-08-02 -- updated ranges
 v3.11.22, 2026-09-04 -- updated ranges
+v3.11.23, YYYY-MM-DD -- TENTATIVE
