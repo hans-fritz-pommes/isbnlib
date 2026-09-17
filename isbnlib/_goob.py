@@ -68,10 +68,7 @@ def _records(isbn, data):
 # pylint: disable=broad-except
 def query(isbn):
     """Query the Google Books (JSON API v1) service for metadata."""
-    api_key=""
-    if apikeys.get("goob",False):
-        api_key=apikeys["goob"]
-
+    api_key=apikeys.get("goob","")
     try:
         data = wquery(SERVICE_URL.format(isbn='isbn:' + isbn, api_key=api_key), user_agent=UA)
         if not data:

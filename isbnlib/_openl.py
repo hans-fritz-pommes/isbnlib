@@ -8,9 +8,9 @@ from .dev import stdmeta
 from .dev._exceptions import DataNotFoundAtServiceError, RecordMappingError
 from .dev.webquery import query as wquery
 
-UA = 'isbnlib (gzip)'
-SERVICE_URL = ('http://openlibrary.org/api/books?bibkeys='
-               'ISBN:{isbn}&format=json&jscmd=data')
+UA = 'isbnlib (gzip) (valarmmail@gmx.de)'
+SERVICE_URL = ('http://openlibrary.org/search.json?q='
+               '{isbn}&fields=title,subtitle,author_name,publisher,first_publish_year,language')
 LOGGER = logging.getLogger(__name__)
 
 
@@ -28,27 +28,19 @@ def _mapper(isbn, records):
         title = title + ' - ' + subtitle if subtitle else title
         canonical['Title'] = title
         canonical['Authors'] = [
-            a['name'] for a in records.get(
-                'authors',
-                ({
-                    'name': '',
-                }, ),
+            a for a in records.get(
+                'author_name',[]
             )
         ]
-        canonical['Publisher'] = records.get(
-            'publishers',
-            [
-                {
-                    'name': '',
-                },
-            ],
-        )[0]['name']
-        canonical['Year'] = ''
-        strdate = records.get('publish_date', '')
-        if strdate:  # pragma: no cover
-            match = re.search(r'\d{4}', strdate)
-            if match:
-                canonical['Year'] = match.group(0)
+        canonical['Publisher'] = ''
+        publs = records.get('publisher', [])
+        if publs:
+            canonical['Publisher'] = publs[0]
+        canonical['Language'] = ''
+        langs = records.get('language', [])
+        if langs:
+            canonical['Language'] = langs[0]
+        canonical['Year'] = str(records.get('first_publish_year',''))
     except Exception:  # pragma: no cover
         LOGGER.debug('RecordMappingError for %s with data %s', isbn, records)
         raise RecordMappingError(isbn)
@@ -61,8 +53,8 @@ def _records(isbn, data):
     """Classify (canonically) the parsed data."""
     try:
         # put the selected data in records
-        records = data['ISBN:%s' % isbn]
-    except Exception:  # pragma: no cover
+        records = data[0]
+    except IndexError:  # pragma: no cover
         # don't raise exception!
         LOGGER.debug('No data from "openl" for isbn %s', isbn)
         return {}
@@ -75,6 +67,7 @@ def query(isbn):
     """Query the openlibrary.org service for metadata."""
     try:
         data = wquery(SERVICE_URL.format(isbn=isbn), user_agent=UA)
+        data = data.get("docs", [])
     except DataNotFoundAtServiceError:
         LOGGER.debug('No data from "openl" for isbn %s', isbn)
         return {}

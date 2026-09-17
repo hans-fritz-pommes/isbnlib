@@ -131,7 +131,7 @@ Main Functions
     Returns the most probable ISBN from a list of words (for your geographic area).
 
 ``goom(words)``
-    Returns a list of references from **Google Books multiple references**.
+    Returns a list of references from **Google Books multiple references**. (*if you get 429, you might need a key for* ``'goob'``)
 
 ``classify(isbn)``
     Returns a dictionary of **classifiers** for a canonical ISBN. For the meaning of these classifiers see OCLC_.
