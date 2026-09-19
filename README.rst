@@ -414,7 +414,7 @@ stackoverflow_.
 
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
-.. _goob: https://github.com/xlcnd/hans-fritz-pommes/blob/main/isbnlib/_goob.py
+.. _goob: https://github.com/hans-fritz-pommes/isbnlib/blob/main/isbnlib/_goob.py
 
 .. _51: https://github.com/xlcnd/isbnlib/issues/51
 
