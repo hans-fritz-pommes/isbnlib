@@ -131,7 +131,7 @@ Main Functions
     Returns the most probable ISBN from a list of words (for your geographic area).
 
 ``goom(words)``
-    Returns a list of references from **Google Books multiple references**.
+    Returns a list of references from **Google Books multiple references**. (*if you get 429, you might need a key for* ``'goob'``)
 
 ``classify(isbn)``
     Returns a dictionary of **classifiers** for a canonical ISBN. For the meaning of these classifiers see OCLC_.
@@ -414,7 +414,7 @@ stackoverflow_.
 
 .. _template: https://github.com/xlcnd/isbnlib/blob/dev/PLUGIN.zip
 
-.. _goob: https://github.com/xlcnd/hans-fritz-pommes/blob/main/isbnlib/_goob.py
+.. _goob: https://github.com/hans-fritz-pommes/isbnlib/blob/main/isbnlib/_goob.py
 
 .. _51: https://github.com/xlcnd/isbnlib/issues/51
 

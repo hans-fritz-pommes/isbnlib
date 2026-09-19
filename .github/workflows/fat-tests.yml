@@ -5,6 +5,9 @@ on:
   schedule:
   - cron: '15 15 * * *'
 
+env:
+  GOOGLE_BOOKS_API_KEY: ${{ secrets.GOOGLE_BOOKS_API_KEY }}
+
 permissions: read-all
 
 jobs:

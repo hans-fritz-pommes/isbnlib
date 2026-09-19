@@ -24,6 +24,7 @@ def doos(words):
         appheaders={
             'Content-Type': 'text/plain; charset="UTF-8"',
             'Content-Transfer-Encoding': 'Quoted-Printable',
+            'Sec-Fetch-Mode': 'navigate', # to avoid CAPTCHAs, see #24
         },
     )
     isbns = get_isbnlike(content)
