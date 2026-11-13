@@ -1,7 +1,7 @@
-**New Release 3.11.26**
+**New Release 3.11.27**
 
 ## What's Changed
-* updated ranges
+* nothing yet
 
 
-**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.25...v3.11.26
+**Full Changelog**: https://github.com/hans-fritz-pommes/isbnlib/compare/v3.11.26...v3.11.27

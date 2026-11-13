@@ -91,3 +91,4 @@ v3.11.23, 2026-09-14 -- updated ranges
 v3.11.24, 2026-09-19 -- repaired openl, added api-key support to goom, added duckduckgo-CAPTCHA-avoiding header, updated ranges, github actions
 v3.11.25, 2026-09-13 -- updated ranges, github actions
 v3.11.26, 2026-11-13 -- updated ranges
+v3.11.27, YYYY-MM-DD -- TENTATIVE
